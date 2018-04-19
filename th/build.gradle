@@ -1,0 +1,41 @@
+apply plugin: 'java'    
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war' 
+
+compileJava {
+  options.encoding = "UTF-8"
+  sourceCompatibility = 1.8
+}
+
+eclipse {
+  wtp {
+    facet {
+      facet name: 'jst.web', version: '3.1'
+      facet name: 'jst.java', version: '1.8'
+    }
+  }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-milestone" }
+}
+
+dependencies {
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    // compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
+	
+	compile (group: 'org.springframework', name: 'spring-webmvc', version: '5.0.3.RELEASE')
+	
+   // compile group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
+	compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
+	
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.4'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
+
+	
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
