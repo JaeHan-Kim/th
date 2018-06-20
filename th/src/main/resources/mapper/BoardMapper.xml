@@ -2,7 +2,7 @@
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Board">
-	<select id="selectBoardList" parameterType="com.th.model.Board" resultType="com.th.model.Board">
+	<select id="selectBoardList" parameterType="Board" resultType="Board">
 		<!-- 
 		SELECT * FROM BOARD ORDER BY BOARD_NO DESC
 		 -->
@@ -22,7 +22,7 @@
 		where T.page = #{page}
 	</select>
 	
-	<insert id="insertBoard" parameterType="com.th.model.Board" >
+	<insert id="insertBoard" parameterType="Board" >
 		INSERT INTO BOARD (
 			BOARD_NO,
 			TITLE,
@@ -38,19 +38,19 @@
 		)
 	</insert>
 	
-	<select id="detailBoard" parameterType="com.th.model.Board" resultType="com.th.model.Board">
+	<select id="detailBoard" parameterType="Board" resultType="Board">
 		SELECT *
 		FROM BOARD 
 		WHERE BOARD_NO = #{boardNo}
 	</select>
 	
-	<delete id="deleteBoard" parameterType="com.th.model.Board">
+	<delete id="deleteBoard" parameterType="Board">
 		DELETE
 		FROM BOARD
 		WHERE BOARD_NO = #{boardNo}
 	</delete>
 	
-	<update id="updateBoard" parameterType="com.th.model.Board">
+	<update id="updateBoard" parameterType="Board">
 		UPDATE BOARD
 		SET	   TITLE = #{title},
 			   CONTENT = #{content},

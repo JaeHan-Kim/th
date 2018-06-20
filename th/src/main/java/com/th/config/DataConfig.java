@@ -38,6 +38,7 @@ public class DataConfig {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         // 이 부분은 mybatis mapper 위치에 대해서 설정해주는 부분...
+        sessionFactory.setTypeAliasesPackage("com.th");
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/**/*Mapper.xml"));
         sessionFactory.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:config/mapper-config.xml"));
         return sessionFactory;
