@@ -23,7 +23,8 @@ public class DataConfig {
 		dataSource.setUsername("system");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 		dataSource.setPassword("1111");
-		
+		dataSource.setMaxTotal(2);
+		dataSource.setMaxIdle(1);
 		return dataSource;
 	}
 
