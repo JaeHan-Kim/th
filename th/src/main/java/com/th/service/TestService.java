@@ -12,7 +12,7 @@ public class TestService {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Scheduled(cron="0/3 * * * * *")
+	//@Scheduled(cron="0/3 * * * * *")
 	public void testMethod() {
 		logger.info("test 스케쥴 시작");
 	}
